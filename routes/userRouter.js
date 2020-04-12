@@ -3,8 +3,10 @@ const router = express.Router();
 const userModel = require("../models/user.js");
 const jwt = require("jsonwebtoken");
 const validationUtils = require("../utils/validation-utils.js");
+const userUtils = require("../utils/user-utils.js");
 
 router.post("/signUp", async (req, res) => {
+  userUtils.validateInfo(req.body, res);
   const user = new userModel({
     email: req.body.email,
     phoneNumber: req.body.phoneNumber,

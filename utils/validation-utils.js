@@ -14,15 +14,6 @@ module.exports = {
         .json({ message: "User Does not have write permission!" });
     }
   },
-
-  relevantInfo: function (user) {
-    return {
-      firstName: user.firstName,
-      lastName: user.lastName ? user.lastName : null,
-      phoneNumber: user.phoneNumber,
-      email: user.email,
-    };
-  },
 };
 
 // Expected format of token

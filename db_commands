@@ -10,3 +10,5 @@ db.mycollection.find().pretty()
 db.mycollection.findOne().pretty()
 db.mycollection.update({"name":"kajol"},{$set:{"phoneNumber":"9999999999"}})
 db.adminCommand({listDatabases: 1})
+
+

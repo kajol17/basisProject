@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const userModel = require("../models/user.js");
 const jwt = require("jsonwebtoken");
+const validationUtils = require("../utils/validation-utils.js");
 
 router.post("/signUp", async (req, res) => {
   const user = new userModel({
@@ -42,21 +43,9 @@ router.post("/signIn", (req, res) => {
   });
 });
 
-// router.post("/updateUserInfo", (req, res) => {
-//   try{
+router.get("/fetch", (req, res) => {
+  validationUtils.validateRequest(req, res);
+  return res.status(200).json({ user: validationUtils.relevantInfo(req.user) });
+});
 
-//   } catch({
-
-//   })
-// });
-
-// router.get("/userInfo", (req, res) => {
-//   try{
-//     const user = await userModel.find();
-//     res.json(user);
-//   } catch(err){
-//     res.status(500).json({message:err.message});
-//   }
-// });
-// router.post("/", (req, res) => {});
 module.exports = router;

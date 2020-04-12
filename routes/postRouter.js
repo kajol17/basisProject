@@ -66,4 +66,19 @@ function isOdd(number) {
   return !isEven(number);
 }
 
+router.get("/fetch", (req, res) => {
+  var postIds = req.body.postIds;
+  postModel.find({ _id: { $in: postIds } }, function (err, post) {
+    if (err) {
+      console.log(err);
+      return res.status(500).json({ message: err.message });
+    }
+
+    if (!post) {
+      return res.status(404).json({ message: "Post not found" });
+    }
+    return res.status(200).json({ post: post });
+  });
+});
+
 module.exports = router;

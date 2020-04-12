@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken");
+
 module.exports = {
   validateRequest: function (req, res) {
     appendToken(req, res);
@@ -12,6 +13,15 @@ module.exports = {
         .status(403)
         .json({ message: "User Does not have write permission!" });
     }
+  },
+
+  relevantInfo: function (user) {
+    return {
+      firstName: user.firstName,
+      lastName: user.lastName ? user.lastName : null,
+      phoneNumber: user.phoneNumber,
+      email: user.email,
+    };
   },
 };
 

@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const commentModel = require("../models/comment.js");
-const validationUtils = require("../validation-utils.js");
+const validationUtils = require("../utils/validation-utils.js");
 
 router.post("/create", async (req, res) => {
   validationUtils.validateRequest(req, res);

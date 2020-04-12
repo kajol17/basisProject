@@ -43,9 +43,41 @@ router.post("/signIn", (req, res) => {
   });
 });
 
-router.get("/fetch", (req, res) => {
+router.get("/fetchDetails", (req, res) => {
   validationUtils.validateRequest(req, res);
   return res.status(200).json({ user: validationUtils.relevantInfo(req.user) });
+});
+
+router.post("/updateDetails", (req, res) => {
+  validationUtils.validateRequest(req, res);
+
+  userModel.findOne({ _id: req.user._id }, function (err, user) {
+    if (err) {
+      console.log(err);
+      return res.status(500).json({ message: err.message });
+    }
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    if (req.body.firstName) {
+      user.firstName = req.body.firstName;
+    }
+    if (req.body.lastName) {
+      user.lastName = req.body.lastName;
+    }
+    if (req.body.phoneNumber) {
+      user.phoneNumber = req.body.phoneNumber;
+    }
+    if (req.body.email) {
+      user.email = req.body.email;
+    }
+    if (req.body.password) {
+      user.password = req.body.password;
+    }
+    user.save();
+    return res.status(200).json({ message: "Details update successfully!" });
+  });
 });
 
 module.exports = router;

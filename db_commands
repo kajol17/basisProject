@@ -1,9 +1,6 @@
- use basisDb
- d.createCollection
+use basisDb
 
-
-
-db.createCollection("mycollection)
+db.createCollection("mycollection")
 show collections
 db.mycollection.insert({"name":"kajol"})
 db.mycollection.find().pretty()

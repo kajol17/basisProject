@@ -17,5 +17,5 @@ app.use("/user", userRouter);
 app.use("/post", postRouter);
 app.use("/comment", commentRouter);
 
-var server_port = process.env.SERVER_PORT;
+var server_port = process.env.PORT || process.env.SERVER_PORT;
 app.listen(server_port, () => console.log("Server started"));

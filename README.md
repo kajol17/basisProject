@@ -6,7 +6,7 @@
   </a>
 </p>
 
-> This is a user login and registration app using Node.js, Express, Mongoose and Git. It is deployed using Heroku and MongoDB Atlas's fully-managed cloud database is used.
+> This is a user login and registration app using Node.js, Express, Mongoose and Git. It is deployed using Heroku. MongoDB Atlas's fully-managed cloud database is used.
 
 ### 🏠 [Homepage](https://github.com/kajol17/basisProject)
 
@@ -32,6 +32,15 @@ $ npm start
 1) Since no information about group is given, ignoring that.
 2) Since no action regarding admin is giving, I have ignored that.
 3) Not checking read permission as it is allowed to all i.e user has either odd or even phone number.
+```
+
+## Issues
+
+```sh
+I have used the free version of Heroku for deployment. It has following issues:
+1) Sleeps after 30 mins of inactivity.
+2) Uses and account-based pool of free dyno hours.
+3) Custom Domains.
 ```
 
 ## Author

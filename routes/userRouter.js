@@ -47,7 +47,7 @@ router.post("/signIn", (req, res) => {
 
 router.get("/fetchDetails", (req, res) => {
   validationUtils.validateRequest(req, res);
-  return res.status(200).json({ user: validationUtils.relevantInfo(req.user) });
+  return res.status(200).json({ user: userUtils.relevantInfo(req.user) });
 });
 
 router.post("/updateDetails", (req, res) => {

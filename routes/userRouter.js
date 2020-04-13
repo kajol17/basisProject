@@ -69,16 +69,19 @@ router.post("/updateDetails", (req, res) => {
       user.lastName = req.body.lastName;
     }
     if (req.body.phoneNumber) {
+      userUtils.phoneNumberValidation(req.body.phoneNumber, res);
       user.phoneNumber = req.body.phoneNumber;
     }
     if (req.body.email) {
+      userUtils.emailValidation(req.body.email, res);
       user.email = req.body.email;
     }
     if (req.body.password) {
+      userUtils.passwordValidation(req.body.password, res);
       user.password = req.body.password;
     }
     user.save();
-    return res.status(200).json({ message: "Details update successfully!" });
+    return res.status(200).json({ message: "Details updated successfully!" });
   });
 });
 

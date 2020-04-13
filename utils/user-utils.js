@@ -31,6 +31,15 @@ module.exports = {
       email: user.email,
     };
   },
+  phoneNumberValidation: function (number, res) {
+    validatePhoneNumber(number, res);
+  },
+  emailValidation: function (email, res) {
+    validateEmail(email, res);
+  },
+  passwordValidation: function (password, res) {
+    validatePassword(password, res);
+  },
 };
 
 function validatePhoneNumber(number, res) {

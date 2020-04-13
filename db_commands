@@ -7,5 +7,5 @@ db.mycollection.find().pretty()
 db.mycollection.findOne().pretty()
 db.mycollection.update({"name":"kajol"},{$set:{"phoneNumber":"9999999999"}})
 db.adminCommand({listDatabases: 1})
-
-
+db.users.createIndex({ email: 1 }, { unique: true } )
+db.users.remove({"_id": ObjectId("5e936305a822a80017085714")})
